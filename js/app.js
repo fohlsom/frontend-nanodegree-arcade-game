@@ -1,4 +1,5 @@
-
+var column = 101;
+var row = 83;
 
 
 // Enemies our player must avoid
@@ -47,7 +48,7 @@ Player.prototype.update = function(dt) {
 }
 
 Player.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x * 101, this.y * 101);
+    ctx.drawImage(Resources.get(this.sprite), this.x * column, row/2 + this.y  * row);
 };
 
 Player.prototype.handleInput = function(keyCode) {
@@ -55,11 +56,12 @@ Player.prototype.handleInput = function(keyCode) {
         this.x -= 1;
     } else if (keyCode === 'right' && this.x < 4) {
         this.x += 1;
-    } else if (keyCode === 'down' && this.y < 4) {
-        this.y += 1;
+    } else if (keyCode === 'down' && this.y < 5) {
+        this.y = 4;
     } else if (this.y >= 0) {
          this.y -= 1;
     }
+    console.log("x: " + this.x, "y: " + this.y);
 };
 
 
@@ -67,9 +69,9 @@ Player.prototype.handleInput = function(keyCode) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var enemy1 = new Enemy(-2,45);
-var enemy2 = new Enemy(-2,135);
-var enemy3 = new Enemy(-2,225);
+var enemy1 = new Enemy(0,45);
+var enemy2 = new Enemy(0,135);
+var enemy3 = new Enemy(0,225);
 var allEnemies = [enemy1, enemy2, enemy3];
 var player = new Player(2,4);
 
