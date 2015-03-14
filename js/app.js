@@ -40,6 +40,11 @@ var Player = function (x,y) {
     this.y = y;
 };
 
+Player.prototype.reset = function(){
+    this.x = 2;
+    this.y = 4;
+}
+
 Player.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
@@ -54,13 +59,18 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(keyCode) {
     if (keyCode === 'left' && this.x > 0) {
         this.x -= 1;
-    } else if (keyCode === 'right' && this.x < 4) {
+    } else if (keyCode === 'right' && this.x != 4) {
         this.x += 1;
-    } else if (keyCode === 'down' && this.y < 5) {
-        this.y = 4;
-    } else if (this.y >= 0) {
-         this.y -= 1;
-    }
+    } else if (keyCode === 'up' && this.y > -1) {
+        this.y -= 1;
+    } else if (keyCode === 'down' && this.y != 4) {
+        this.y += 1;
+    } 
+    if (this.y === -1) {
+            this.reset();
+            console.log("Player reached the water, resetting.");
+        };
+    keyCode = null;
     console.log("x: " + this.x, "y: " + this.y);
 };
 
