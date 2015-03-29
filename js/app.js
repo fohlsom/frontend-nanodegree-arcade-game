@@ -26,17 +26,16 @@ Enemy.prototype.update = function(dt) {
      if (this.x >= 6){
         this.x = -2;
         this.y = getRandomInt(0,3)
-        //this.y = Math.floor(Math.random()*2.999);
     } else {
         this.x += this.speed * dt;
     }
 }
 
+// Get random int within range
 function getRandomInt(min, max) {
-  var y = Math.floor(Math.random() * (max - min)) + min;
-  console.log(y);
-  return y;
-  
+    var y = Math.floor(Math.random() * (max - min)) + min;
+    // console.log(y);
+    return y;
 }
 
 // Draw the enemy on the screen, required method for game
@@ -80,8 +79,9 @@ Player.prototype.handleInput = function(keyCode) {
         this.y += 1;
     } 
     if (this.y === -1) {
-            this.reset();
             console.log("Player reached the water, resetting.");
+            this.reset();
+            
         };
     keyCode = null;
     console.log("x: " + this.x, "y: " + this.y);
