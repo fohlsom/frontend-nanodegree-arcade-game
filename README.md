@@ -1,6 +1,8 @@
 frontend-nanodegree-arcade-game
 ===============================
 
-Students should use this rubric: https://www.udacity.com/course/viewer#!/c-ud015/l-3072058665/m-3072588797
-
-for self-checking their submission.
+Instructions:
+1. Download the entire folder
+2. Unzip
+3. Open the index.html in a browser
+4. Use the arrow keys to move around, avoid the bugs and the water. Game speed will increase every 4 seconds.

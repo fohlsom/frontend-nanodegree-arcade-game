@@ -1,5 +1,14 @@
 var column = 101;
 var row = 83;
+var timer = 1;
+
+setInterval(increment, 3000);
+
+function increment(){
+    timer = timer + 0.1;
+    return timer;
+}
+
 
 
 // Enemies our player must avoid
@@ -9,12 +18,12 @@ var Enemy = function(x,y) {
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
-    this.speed = 2 + Math.random();
+    this.speed = 1 + Math.random();
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
- 
 }
+
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -27,7 +36,7 @@ Enemy.prototype.update = function(dt) {
         this.x = -2;
         this.y = getRandomInt(0,3)
     } else {
-        this.x += this.speed * dt;
+        this.x += this.speed * timer * dt;
     }
 }
 

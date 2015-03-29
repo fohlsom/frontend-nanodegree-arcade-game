@@ -86,8 +86,9 @@ var Engine = (function(global) {
     function checkCollisions() {
 
         for (var i = 0;i < allEnemies.length; i++) {
-            if (allEnemies[i].y === player.y && allEnemies[i].x > player.x - 0.30 && allEnemies[i].x < player.x + 0.30) {
-                player.reset();
+            if (allEnemies[i].y === player.y && allEnemies[i].x > player.x - 0.30 
+                && allEnemies[i].x < player.x + 0.30) {
+                    player.reset();
             }
             // console.log(allEnemies[i]);
         }
